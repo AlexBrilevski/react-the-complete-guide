@@ -41,12 +41,12 @@ const Counter = ({ initialCount }) => {
     0
   );
 
-  const handleDecrement = useCallback(function handleDecrement() {
+  const handleDecrement = useCallback(() => {
     // setCounter((prevCounter) => prevCounter - 1);
     setCounterChanges((prevCounterChanges) => [{id: Math.random() * 1000, value: -1}, ...prevCounterChanges]);
   }, []);
 
-  const handleIncrement = useCallback(function handleIncrement() {
+  const handleIncrement = useCallback(() => {
     // setCounter((prevCounter) => prevCounter + 1);
     setCounterChanges((prevCounterChanges) => [{id: Math.random() * 1000, value: 1}, ...prevCounterChanges]);
   }, []);
