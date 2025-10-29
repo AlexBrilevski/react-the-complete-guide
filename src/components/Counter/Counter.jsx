@@ -33,7 +33,6 @@ const Counter = ({ initialCount }) => {
     [initialCount]
   );
 
-  // const [counter, setCounter] = useState(initialCount);
   const [counterChanges, setCounterChanges] = useState([{id: Math.random() * 1000, value: initialCount}]);
 
   const currentCounter = counterChanges.reduce(
@@ -42,12 +41,10 @@ const Counter = ({ initialCount }) => {
   );
 
   const handleDecrement = useCallback(() => {
-    // setCounter((prevCounter) => prevCounter - 1);
     setCounterChanges((prevCounterChanges) => [{id: Math.random() * 1000, value: -1}, ...prevCounterChanges]);
   }, []);
 
   const handleIncrement = useCallback(() => {
-    // setCounter((prevCounter) => prevCounter + 1);
     setCounterChanges((prevCounterChanges) => [{id: Math.random() * 1000, value: 1}, ...prevCounterChanges]);
   }, []);
 
