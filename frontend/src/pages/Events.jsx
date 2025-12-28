@@ -5,9 +5,7 @@ import EventsList from '../components/EventsList';
 import { Suspense } from 'react';
 
 function EventsPage() {
-  const data = useLoaderData();
-
-  const events = data.events;
+  const { events } = useLoaderData();
 
   return (
     <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
