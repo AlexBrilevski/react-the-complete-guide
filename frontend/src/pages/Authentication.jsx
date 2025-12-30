@@ -39,8 +39,10 @@ export const authAction = async ({ request }) => {
     });
   }
 
-  // manage token
-  console.log(response);
+  const respData = await response.json();
+  const token = respData.token;
+  localStorage.setItem('token', token);
+
   return redirect('/');
 };
 

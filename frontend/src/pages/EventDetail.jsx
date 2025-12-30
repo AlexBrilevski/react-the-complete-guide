@@ -3,6 +3,7 @@ import { useRouteLoaderData, Await, redirect } from "react-router-dom";
 import EventItem from '../components/EventItem';
 import EventsList from "../components/EventsList";
 import { loadEvent, loadEvents } from "../http/events";
+import { getAuthToken } from "../utils/auth";
 
 const EventDetailPage = () => {
   const data = useRouteLoaderData('event-detail');
@@ -36,9 +37,13 @@ export const eventDetailLoader = async ({ params }) => {
 
 export const deleteEventAction = async ({ request, params }) => {
   const id = params.eventId;
+  const token = getAuthToken();
 
   const response = await fetch('http://localhost:8080/events/' + id, {
     method: request.method,
+    headers: {
+      'Authorization': 'Bearer ' + token,
+    },
   });
 
   if (!response.ok) {
