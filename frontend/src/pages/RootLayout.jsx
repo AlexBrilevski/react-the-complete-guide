@@ -24,7 +24,7 @@ const RootLayout = () => {
     setTimeout(() => {
       submit(null, { action: '/auth', method: 'POST' });
     }, tokenDuration);
-  }, [token]);
+  }, [token, submit]);
 
   return (
     <>
