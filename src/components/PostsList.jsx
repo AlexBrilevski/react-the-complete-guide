@@ -11,7 +11,7 @@ function PostsList({ isPosting, onStopPosting }) {
   function addPostHandler(newPost) {
     fetch('http://localhost:8080/posts', {
       method: 'POST',
-      boby: JSON.stringify(newPost),
+      body: JSON.stringify(newPost),
       headers: {
         'Content-Type': 'application/json',
       },
