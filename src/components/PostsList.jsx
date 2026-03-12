@@ -22,10 +22,20 @@ function PostsList({ isPosting, onStopPosting }) {
           />
         </Modal>
       )}
-      <ul className={classes.posts}>
-        <Post author='Author 1' body='Post text 1' />
-        <Post author='Author 2' body='Post text 2' />
-      </ul>
+      {posts.length > 0 ?
+        <ul className={classes.posts}>
+          {posts.map((post, index) => {
+            const postId = `post-id-${index + Math.random()}`;
+            return <Post key={postId} {...post} />
+          })}
+        </ul>
+        :
+        <div style={{ textAlign: 'center', color: 'white' }}>
+          <h2>There are no posts yet.</h2>
+          <p>Start adding some!</p>
+        </div>
+      }
+
     </>
   );
 }
