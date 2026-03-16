@@ -5,17 +5,6 @@ import classes from './PostsList.module.css';
 function PostsList() {
   const posts = useLoaderData();
 
-  function addPostHandler(newPost) {
-    fetch('http://localhost:8080/posts', {
-      method: 'POST',
-      body: JSON.stringify(newPost),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    setPosts(existingPosts => [newPost, ...existingPosts]);
-  }
-
   return (
     <>
       {posts.length > 0 && (
