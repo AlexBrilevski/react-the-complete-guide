@@ -9,9 +9,8 @@ function PostsList() {
     <>
       {posts.length > 0 && (
         <ul className={classes.posts}>
-          {posts.map((post, index) => {
-            const postId = `post-id-${index + Math.random()}`;
-            return <Post key={postId} {...post} />
+          {posts.map(post => {
+            return <Post key={post.id} {...post} />
           })}
         </ul>
       )}
