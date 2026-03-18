@@ -6,7 +6,7 @@ export async function action({ request }) {
   const formData = await request.formData();
   const postData = Object.fromEntries(formData);
 
-  fetch('http://localhost:8080/posts', {
+  await fetch('http://localhost:8080/posts', {
     method: 'POST',
     body: JSON.stringify(postData),
     headers: {
