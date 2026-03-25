@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-function Card({ className, children }) {
+const Card = ({ className, children }) => {
   const cssClasses = 'card' + (className ? (' ' + className) : '');
 
   return (

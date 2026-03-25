@@ -28,7 +28,7 @@ const expenses = [
   },
 ];
 
-function App() {
+const App = () => {
   // return (
   //   React.createElement(
   //     'div', 
