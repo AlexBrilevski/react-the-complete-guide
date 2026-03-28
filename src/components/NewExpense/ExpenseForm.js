@@ -3,20 +3,19 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-  const [enteredTitle, setEnteredTitle] = useState('');
-  const [enteredAmount, setEnteredAmount] = useState('');
-  const [enteredDate, setEnteredDate] = useState('');
+  const [expenseData, setExpenseData] = useState({
+    title: '',
+    amount: '',
+    date: '',
+  });
 
-  const titleChangeHandler = (e) => {
-    setEnteredTitle(e.target.value);
-  };
+  const inputChangeHandler = (fieldId, value) => {
+    setExpenseData(prevState => ({
+      ...prevState,
+      [fieldId]: value,
+    }));
 
-  const amountChangeHandler = (e) => {
-    setEnteredAmount(e.target.value);
-  };
-
-  const dateChangeHandler = (e) => {
-    setEnteredDate(e.target.value);
+    console.log(expenseData);
   };
 
   return (
@@ -26,7 +25,7 @@ const ExpenseForm = () => {
           <label>Title</label>
           <input
             type="text"
-            onChange={titleChangeHandler}
+            onChange={(e) => inputChangeHandler('title', e.target.value)}
           />
         </div>
         <div className="new-expense__control">
@@ -35,14 +34,14 @@ const ExpenseForm = () => {
             type="number"
             min="0.01"
             step="0.01"
-            onChange={amountChangeHandler}
+            onChange={(e) => inputChangeHandler('amount', e.target.value)}
           />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
           <input
             type="date"
-            onChange={dateChangeHandler}
+            onChange={(e) => inputChangeHandler('date', e.target.value)}
           />
         </div>
       </div>
