@@ -9,17 +9,21 @@ const ExpenseForm = () => {
     date: '',
   });
 
-  const inputChangeHandler = (fieldId, value) => {
+  const inputChangeHandler = (key, value) => {
     setExpenseData(prevState => ({
       ...prevState,
-      [fieldId]: value,
+      [key]: value,
     }));
+  };
 
-    console.log(expenseData);
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+
+    console.log({ ...expenseData, date: new Date(expenseData.date) });
   };
 
   return (
-    <form>
+    <form onSubmit={formSubmitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
