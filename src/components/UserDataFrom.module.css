@@ -1,0 +1,56 @@
+.userDataForm {
+  width: 35rem;
+  max-width: 95%;
+  padding: 1rem;
+  margin: 2rem auto;
+  background-color: #3f3f3f;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+.formControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.formControl {
+  flex-grow: 1;
+}
+
+.formControl label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.formControl input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.formActions {
+  text-align: right;
+}
+
+.formActions button {
+  padding: 1rem 2rem;
+  background-color: #40005d;
+  border: 1px solid #40005d;
+  border-radius: 12px;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.formActions button:hover,
+.formActions button:active {
+  background-color: #510674;
+  border-color: #510674;
+}
