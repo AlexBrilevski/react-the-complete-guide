@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import classes from './UserDataFrom.module.css';
 
-const UserDataForm = () => {
+const UserDataForm = ({ onAddUser }) => {
   const [userData, setUserData] = useState({ name: '', age: '' });
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    console.log(userData);
+    onAddUser(userData);
   };
 
   const inputChangeHandler = (fieldId, e) => {
