@@ -6,7 +6,7 @@ const initUserData = {
   age: '',
 };
 
-const UserDataForm = ({ onAddUser }) => {
+const AddUserForm = ({ onAddUser }) => {
   const [userData, setUserData] = useState(initUserData);
 
   const addUserHandler = (e) => {
@@ -68,4 +68,4 @@ const UserDataForm = ({ onAddUser }) => {
   );
 };
 
-export default UserDataForm;
+export default AddUserForm;
