@@ -6,6 +6,7 @@ const UserDataForm = ({ onAddUser }) => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
+    console.log(userData);
 
     if (userData.name.length === 0) {
       console.log('Please enter user name');
@@ -17,11 +18,19 @@ const UserDataForm = ({ onAddUser }) => {
       return;
     }
 
+    if (userData.age <= 0) {
+      console.log('User age must be at greater than 0');
+      return;
+    }
+
     onAddUser(userData);
   };
 
   const inputChangeHandler = (fieldId, e) => {
-    setUserData(prevUserData => ({ ...prevUserData, [fieldId]: e.target.value }));
+    setUserData(prevUserData => ({
+       ...prevUserData, 
+       [fieldId]: fieldId === 'age' ? +e.target.value : e.target.value, 
+      }));
   };
 
   return (
@@ -39,6 +48,7 @@ const UserDataForm = ({ onAddUser }) => {
           <label htmlFor="age">Age</label>
           <input
             id="age"
+            type="number"
             value={userData.age}
             onChange={(e) => inputChangeHandler('age', e)}
           />
