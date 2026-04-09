@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Card from './UI/Card';
 
 import classes from './AddUserFrom.module.css';
+import Button from './UI/Button';
 
 const initUserData = {
   name: '',
@@ -62,7 +63,7 @@ const AddUserForm = ({ onAddUser }) => {
           />
         </div>
         <div className={classes['form-actions']}>
-          <button>Add User</button>
+          <Button>Add User</Button>
         </div>
       </form>
     </Card>

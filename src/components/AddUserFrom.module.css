@@ -26,22 +26,6 @@
   border-color: #4f005f;
 }
 
-.add-user-form button {
-  padding: 1rem 2rem;
-  background-color: #40005d;
-  border: 1px solid #40005d;
-  border-radius: 12px;
-  color: white;
-  font: inherit;
-  cursor: pointer;
-}
-
-.add-user-form button:hover,
-.add-user-form button:active {
-  background-color: #510674;
-  border-color: #510674;
-}
-
 .form-controls {
   margin-bottom: 2rem;
 }
