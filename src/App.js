@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import AddUserForm from './components/AddUserForm';
-import UsersList from './components/UsersList';
-import Card from './components/UI/Card';
+import AddUserForm from './components/Users/AddUserForm';
+import UsersList from './components/Users/UsersList';
 
 const initUsers = [];
 
@@ -17,9 +16,7 @@ function App() {
   return (
     <div>
       <AddUserForm onAddUser={addUser} />
-      <Card>
-        <UsersList users={users} />
-      </Card>
+      <UsersList users={users} />
     </div>
   );
 }
