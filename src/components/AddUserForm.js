@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import classes from './AddUserFrom.module.css';
 
 const initUserData = {
@@ -40,7 +41,7 @@ const AddUserForm = ({ onAddUser }) => {
   };
 
   return (
-    <form onSubmit={addUserHandler} className={classes.userDataForm}>
+    <form onSubmit={addUserHandler}>
       <div className={classes.formControls}>
         <div className={classes.formControl}>
           <label htmlFor="name">Name</label>
