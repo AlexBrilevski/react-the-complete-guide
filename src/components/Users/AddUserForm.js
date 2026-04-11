@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Card from '../UI/Card';
 import Button from '../UI/Button';
+import ErrorMessage from '../UI/ErrorMessage';
 
 import classes from './AddUserFrom.module.css';
 
@@ -12,27 +13,31 @@ const initUserData = {
 
 const AddUserForm = ({ onAddUser }) => {
   const [userData, setUserData] = useState(initUserData);
+  const [validationError, setValidationError] = useState(null);
 
   const addUserHandler = (e) => {
     e.preventDefault();
-    console.log(userData);
     const { name, age } = userData;
 
     if (name.trim().length === 0 ||
       (typeof age === 'string' && age.trim().length === 0)
     ) {
-      console.log('Please enter user name and age');
+      setValidationError('Please enter user name and age');
       return;
     }
 
     if (name.trim().length < 3) {
-      console.log('User name must be at least 3 characters long');
+      setValidationError('User name must be at least 3 characters long');
       return;
     }
 
     if (+age < 1) {
-      console.log('User age must be at greater than 0');
+      setValidationError('User age must be at greater than 0');
       return;
+    }
+
+    if (validationError) {
+      setValidationError(null);
     }
 
     onAddUser(userData);
@@ -47,29 +52,37 @@ const AddUserForm = ({ onAddUser }) => {
   };
 
   return (
-    <Card className={classes['add-user-form']}>
-      <form onSubmit={addUserHandler}>
-        <div className={classes['form-controls']}>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            value={userData.name}
-            onChange={(e) => inputChangeHandler('name', e)}
-          />
-          <label htmlFor="age">Age (Years)</label>
-          <input
-            id="age"
-            type="number"
-            value={userData.age}
-            onChange={(e) => inputChangeHandler('age', e)}
-          />
-        </div>
-        <div className={classes['form-actions']}>
-          <Button>Add User</Button>
-        </div>
-      </form>
-    </Card>
+    <>
+      <Card className={classes['add-user-form']}>
+        <form onSubmit={addUserHandler}>
+          <div className={classes['form-controls']}>
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              type="text"
+              value={userData.name}
+              onChange={(e) => inputChangeHandler('name', e)}
+            />
+            <label htmlFor="age">Age (Years)</label>
+            <input
+              id="age"
+              type="number"
+              value={userData.age}
+              onChange={(e) => inputChangeHandler('age', e)}
+            />
+          </div>
+          <div className={classes['form-actions']}>
+            <Button>Add User</Button>
+          </div>
+        </form>
+      </Card>
+      {validationError && (
+        <ErrorMessage
+          message={validationError}
+          onClose={() => setValidationError(null)}
+        />
+      )}
+    </>
   );
 };
 
