@@ -4,7 +4,7 @@ const UserItem = ({ name, age }) => {
   return (
     <div className={classes.userItem}>
       <p className={classes.name}>{name}</p>
-      <p>{age}</p>
+      <p>({age} years old)</p>
     </div>
   );
 };
