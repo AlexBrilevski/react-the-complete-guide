@@ -1,0 +1,36 @@
+.add-user-form {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  background-color: #3f3f3f;
+}
+
+.add-user-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.add-user-form input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.add-user-form input:focus {
+  outline: none;
+  border-color: #4f005f;
+}
+
+.form-controls {
+  margin-bottom: 2rem;
+}
+
+.form-actions {
+  text-align: right;
+}
